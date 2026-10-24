@@ -21,7 +21,7 @@ jobs:
       - name: Tag for version
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git tag -f v3.10.0-mahim
+          git tag -f v3.10.0
       - name: CMake configure
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_EXE_LINKER_FLAGS="-static"
@@ -51,7 +51,7 @@ jobs:
       - name: Tag for version
         run: |
           git config --global --add safe.directory "$env:GITHUB_WORKSPACE"
-          git tag -f v3.10.0-mahim
+          git tag -f v3.10.0
       - name: CMake configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_CXX_STANDARD=17 -DABSL_PROPAGATE_CXX_STD=ON -DABSL_BUILD_TESTING=OFF
       - name: CMake build
@@ -92,8 +92,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v3.10.0-mahim
-          name: v3.10.0-mahim
+          tag_name: v3.10.0
+          name: v3.10.0
           body: "Static builds of Shaka Packager with fMP4 segfault fix (#1368). Linux x86-64 (musl) + Windows x86-64 (MSVC)."
           files: |
             release-assets/packager
